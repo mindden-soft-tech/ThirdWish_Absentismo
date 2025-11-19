@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Absentismo - Analítica Predictiva (RRHH)</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link rel="stylesheet" href="./vendor/chartist/css/chartist.min.css">
+    <link href="./css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                ThirdWish Systems
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-user"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Ausencia</strong> no cubierta en Centro 04.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Riesgo Alto</strong> de absentismo en Turno Noche.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="danger"><i class="ti-bookmark"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Piloto Ergonomía</strong>: Incidencia Musculoesquelética reducida.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="primary"><i class="ti-heart"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Notificación Push</strong>: 8 propuestas aceptadas.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-image"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong> Candidato</strong> de Reemplazo Urgente pre-aprobado.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">Ver todas las alertas <i
+                                            class="ti-arrow-right"></i></a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="./app-profile.html" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Perfil </span>
+                                    </a>
+                                    <a href="./email-inbox.html" class="dropdown-item">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="ml-2">Mensajes </span>
+                                    </a>
+                                    <a href="./page-login.html" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Cerrar Sesión </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first"><a href="dashboard.html">Dashboard</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Absentismo</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="analitica_predictiva_rrhh.html">Analítica Predictiva (RRHH)</a></li>
+                            <li><a href="gestion_reactiva_operaciones.html">Gestión Reactiva (Operaciones)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Soluciones ThirdWish</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Gestión Reactiva</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="gestion_automatica_turnos.html">Gestión Automática de Turnos</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Recruiting y Sustitución</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="pipe_line_urgente.html">Pipeline Urgente</a></li>
+                                    <li><a href="screening_ai.html">Screening IA</a></li>
+                                    <li><a href="matching_inteligente.html">Matching Inteligente</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="integracion_turnos_pipeline.html">Integración (Turnos / Pipeline)</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-chart-bar-33"></i><span class="nav-text">Informes y KPIs</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="coste_absentismo_vs_ahorro.html">Coste Absentismo vs Ahorro</a></li>
+                            <li><a href="impacto_pilotos.html">Impacto Pilotos</a></li>
+                            <li><a href="kips_absentismo.html">KPIs de Absentismo</a></li>
+                            <li><a href="kpis_rotacion_calidad.html">KPIs de Rotación/Calidad</a></li>
+                            <li><a href="benmarch_sectorial.html">Benchmarking Sectorial</a></li>
+                            <li><a href="roi.html">ROI del Proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Intervención Proactiva</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Pilotos de Intervención</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="ergonomia.html">Ergonomía / Musculoesquelética</a></li>
+                            <li><a href="salud_mental_estres.html">Salud Mental / Estrés</a></li>
+                            <li><a href="conciliacion_compromiso.html">Conciliación / Compromiso</a></li>
+                            <li><a href="gestion_clima_laboral.html">Gestión del Clima Laboral</a></li>
+                            <li><a href="seguimiento_bajas_largas.html">Seguimiento de Bajas Largas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Configuración</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="alertas_notificaciones.html">Alertas y Notificaciones</a></li>
+                            <li><a href="definicion_reglas_turnos.html">Definición de Centros/Turnos</a></li>
+                            <li><a href="reglas_algoritmos_turnos.html">Reglas del Algoritmo de Turnos</a></li>
+                            <li><a href="gestion_roles_permisos.html">Gestión de Roles/Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="soporte_ayuda.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                                class="nav-text">Soporte y Ayuda</span></a></li>
+                    <li class="nav-label">Recursos</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Documentación</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="manual_usuario.html">Manual de Usuario</a></li>
+                            <li><a href="table-datatable-basic.html">Guía de KPIs y Objetivos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6">
+                        <div class="welcome-text">
+                            <h4>Absentismo y Analítica Predictiva</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Analítica Predictiva</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-money text-danger border-danger"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Coste Teórico Anual Absentismo</div>
+                                    <div class="stat-digit">23,000,000 €</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-stats-up text-warning border-warning"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Tasa de Absentismo Actual</div>
+                                    <div class="stat-digit">11.5 %</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-target text-info border-info"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Precisión Predictiva del Modelo</div>
+                                    <div class="stat-digit">71 %</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-gift text-success border-success"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">ROI Proyectado (Año 1)</div>
+                                    <div class="stat-digit">340 %</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tendencia Histórica y Proyección de la Tasa de Absentismo</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart-absentismo-proyectado" class="ct-chart ct-golden-section"></div>
+                                <p class="text-center mt-3">Comparativa entre Tasa Actual (11.5%), Objetivo (9.0%) y Riesgo Predictivo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Distribución de Puntos Calientes por Causa y Centro</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart-puntos-calientes" class="ct-chart ct-golden-section"></div>
+                                <p class="text-center mt-3">Visualización de las áreas que concentran el 20% - 30% del absentismo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">KPIs y Objetivos Estratégicos (Metas RRHH)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table student-data-table m-t-20">
+                                        <thead>
+                                            <tr>
+                                                <th>Indicador Estratégico</th>
+                                                <th>Valor Actual</th>
+                                                <th>Objetivo (12 Meses)</th>
+                                                <th>Última Medición</th>
+                                                <th>Tendencia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tasa de Absentismo (% Total)</td>
+                                                <td>11.5 %</td>
+                                                <td>9.0 %</td>
+                                                <td>30/11/2025</td>
+                                                <td><span class="badge badge-danger">Alta</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Duración Media de Baja (Días)</td>
+                                                <td>18.4 días</td>
+                                                <td>&lt; 15 días</td>
+                                                <td>30/11/2025</td>
+                                                <td><span class="badge badge-warning">Estable</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Procesos IT / 1.000 Empleados / Mes</td>
+                                                <td>6.1</td>
+                                                <td>&lt; 5.0</td>
+                                                <td>30/11/2025</td>
+                                                <td><span class="badge badge-danger">Alta</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>% Empleados con &ge; 2 Bajas (12M)</td>
+                                                <td>22 %</td>
+                                                <td>&lt; 18 %</td>
+                                                <td>30/11/2025</td>
+                                                <td><span class="badge badge-primary">Mejora</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>ROI Estimado de Intervención Proactiva</td>
+                                                <td>N/A</td>
+                                                <td>&gt; 100 %</td>
+                                                <td>30/11/2025</td>
+                                                <td><span class="badge badge-success">Pendiente</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Diseñado e Implementado por ThirdWish Systems 2025</p>
+            </div>
+        </div>
+        </div>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+    
+
+
+    <script src="./vendor/chartist/js/chartist.min.js"></script>
+    <script src="./vendor/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+    <script>
+        // Código de inicialización de los gráficos de Chartist
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ==============================================================================
+            // GRÁFICO 1: Tendencia Histórica y Proyección de la Tasa de Absentismo (Line Chart)
+            // ==============================================================================
+            var dataTendencia = {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Obj 90D', 'Obj 12M'],
+                series: [{
+                        name: 'Tasa Actual (Histórico)',
+                        data: [12.0, 11.8, 11.5, 11.6, 11.4, 11.5, null, null]
+                    },
+                    {
+                        name: 'Proyección / Objetivo (Target)',
+                        // Muestra el punto inicial en 11.5, el objetivo a 90 días (10.5) y el objetivo a 12 meses (9.0)
+                        data: [null, null, null, null, null, 11.5, 10.5, 9.0]
+                    }
+                ]
+            };
+
+            var optionsTendencia = {
+                low: 8.0, // Define el límite inferior del eje Y para centrar la visualización
+                high: 13.0, // Define el límite superior del eje Y
+                showArea: true,
+                fullWidth: true,
+                chartPadding: {
+                    right: 40
+                },
+                axisY: {
+                    labelInterpolationFnc: function(value) {
+                        return value + '%';
+                    }
+                },
+                // Añadir el plugin de tooltips para mostrar los valores al pasar el ratón
+                plugins: [
+                    Chartist.plugins.tooltip()
+                ]
+            };
+
+            new Chartist.Line('#chart-absentismo-proyectado', dataTendencia, optionsTendencia);
+
+
+            // ==============================================================================
+            // GRÁFICO 2: Distribución de Puntos Calientes por Causa (Pie Chart)
+            // ==============================================================================
+            var dataPuntosCalientes = {
+                labels: ['Musculoesquelético', 'Estrés / Ansiedad', 'Común (Gripe)', 'Otros'],
+                series: [{
+                        value: 20, // 20%
+                        className: "ct-series-a"
+                    },
+                    {
+                        value: 10, // 10%
+                        className: "ct-series-b"
+                    },
+                    {
+                        value: 30, // 30%
+                        className: "ct-series-c"
+                    },
+                    {
+                        value: 40, // 40%
+                        className: "ct-series-d"
+                    }
+                ]
+            };
+
+            var optionsPuntosCalientes = {
+                donut: true, // Para hacerlo tipo dona, si quieres
+                donutWidth: 60,
+                startAngle: 270,
+                showLabel: true,
+                labelInterpolationFnc: function(value) {
+                    // Muestra el porcentaje de cada segmento en la etiqueta
+                    var total = dataPuntosCalientes.series.reduce(function(prev, cur) {
+                        return prev + cur.value;
+                    }, 0);
+                    return value + '%'; // La etiqueta ya es el valor porcentual (20, 10, 30, 40)
+                },
+                plugins: [
+                    Chartist.plugins.tooltip()
+                ]
+            };
+
+            new Chartist.Pie('#chart-puntos-calientes', dataPuntosCalientes, optionsPuntosCalientes);
+        });
+    </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Obtiene el archivo actual
+    let currentPage = window.location.pathname.split("/").pop();
+
+    // Recorre todos los enlaces del menú
+    document.querySelectorAll("#menu a").forEach(function (link) {
+        let href = link.getAttribute("href");
+
+        // Si coincide, marcamos este enlace
+        if (href === currentPage) {
+
+            // Marca el enlace como activo
+            link.classList.add("mm-active", "active");
+
+            // Y marca su <li>
+            let li = link.closest("li");
+            if (li) li.classList.add("mm-active");
+
+            // Abrimos el submenu
+            let parentUl = link.closest("ul");
+            if (parentUl && parentUl.id !== "menu") {
+
+                parentUl.classList.add("mm-show");
+
+                // También marcamos el icono / texto padre
+                let parentLi = parentUl.closest("li");
+                if (parentLi) {
+                    parentLi.classList.add("mm-active");
+
+                    // Marca también el enlace del menú padre
+                    let parentLink = parentLi.querySelector("a.has-arrow");
+                    if (parentLink) parentLink.classList.add("mm-active");
+                }
+            }
+        }
+    });
+});
+</script>
+
+    
+</body>
+
+</html>

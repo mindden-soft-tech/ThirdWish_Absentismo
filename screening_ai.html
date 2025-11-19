@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Absentismo - Screening IA</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    
+    <link href="./vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet"> 
+    <link href="./css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                ThirdWish Systems
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Buscar candidato..." aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-check-box"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>32</strong> nuevos candidatos procesados por la IA.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">Ahora</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">Ver todas las alertas <i
+                                            class="ti-arrow-right"></i></a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="./app-profile.html" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Perfil </span>
+                                    </a>
+                                    <a href="./page-login.html" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Cerrar Sesión </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first"><a href="dashboard.html">Dashboard</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Absentismo</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="analitica_predictiva_rrhh.html">Analítica Predictiva (RRHH)</a></li>
+                            <li><a href="gestion_reactiva_operaciones.html">Gestión Reactiva (Operaciones)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Soluciones ThirdWish</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Gestión Reactiva</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="gestion_automatica_turnos.html">Gestión Automática de Turnos</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Recruiting y Sustitución</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="pipe_line_urgente.html">Pipeline Urgente</a></li>
+                                    <li><a href="screening_ai.html">Screening IA</a></li>
+                                    <li><a href="matching_inteligente.html">Matching Inteligente</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="integracion_turnos_pipeline.html">Integración (Turnos / Pipeline)</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-chart-bar-33"></i><span class="nav-text">Informes y KPIs</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="coste_absentismo_vs_ahorro.html">Coste Absentismo vs Ahorro</a></li>
+                            <li><a href="impacto_pilotos.html">Impacto Pilotos</a></li>
+                            <li><a href="kips_absentismo.html">KPIs de Absentismo</a></li>
+                            <li><a href="kpis_rotacion_calidad.html">KPIs de Rotación/Calidad</a></li>
+                            <li><a href="benmarch_sectorial.html">Benchmarking Sectorial</a></li>
+                            <li><a href="roi.html">ROI del Proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Intervención Proactiva</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Pilotos de Intervención</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="ergonomia.html">Ergonomía / Musculoesquelética</a></li>
+                            <li><a href="salud_mental_estres.html">Salud Mental / Estrés</a></li>
+                            <li><a href="conciliacion_compromiso.html">Conciliación / Compromiso</a></li>
+                            <li><a href="gestion_clima_laboral.html">Gestión del Clima Laboral</a></li>
+                            <li><a href="seguimiento_bajas_largas.html">Seguimiento de Bajas Largas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Configuración</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="alertas_notificaciones.html">Alertas y Notificaciones</a></li>
+                            <li><a href="definicion_reglas_turnos.html">Definición de Centros/Turnos</a></li>
+                            <li><a href="reglas_algoritmos_turnos.html">Reglas del Algoritmo de Turnos</a></li>
+                            <li><a href="gestion_roles_permisos.html">Gestión de Roles/Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="soporte_ayuda.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                                class="nav-text">Soporte y Ayuda</span></a></li>
+                    <li class="nav-label">Recursos</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Documentación</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="manual_usuario.html">Manual de Usuario</a></li>
+                            <li><a href="table-datatable-basic.html">Guía de KPIs y Objetivos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Screening IA de Candidatos</h4>
+                            <p class="mb-0">Evaluación automática y priorización de candidatos según Score de Match y Riesgo Predictivo de Ausencia.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Soluciones</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Screening IA</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-check-box text-success border-success"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Tasa de Filtrado (Apto > 80%)</div>
+                                    <div class="stat-digit">75%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-user text-warning border-warning"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Volumen Pendiente de Revisión</div>
+                                    <div class="stat-digit">32</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-stats-up text-info border-info"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Precisión del Riesgo Predictivo</div>
+                                    <div class="stat-digit">91%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-target text-danger border-danger"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Conver. a Pipeline Urgente</div>
+                                    <div class="stat-digit">12%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-intro-title">Importación y Criterios IA</h4>
+                                <p>Administra las fuentes de candidatos y la lógica de puntuación.</p>
+
+                                <div class="mt-4">
+                                    <label class="control-label">Fuente de Datos</label>
+                                    <select class="form-control form-white">
+                                        <option>BBDD RRHH Interna</option>
+                                        <option>Job Boards (InfoJobs/LinkedIn)</option>
+                                        <option>Recomendaciones</option>
+                                    </select>
+                                </div>
+                                
+                                <h5 class="mt-5">Ponderación del Score (Ajuste Rápido)</h5>
+                                
+                                <div class="mt-4">
+                                    <label class="control-label">Experiencia en Puesto</label>
+                                    <input type="range" min="0" max="100" value="60" class="form-control">
+                                </div>
+                                <div class="mt-3">
+                                    <label class="control-label">Historial de Movilidad/Rotación</label>
+                                    <input type="range" min="0" max="100" value="80" class="form-control">
+                                </div>
+
+                                <a href="./uc-noui-slider.html" class="btn btn-primary btn-sm mt-4 w-100">
+                                    <i class="ti-settings"></i> Config. Avanzada de Factores
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Candidatos a Revisar por la IA (Priorizados)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="screening-table" class="table table-hover zero-configuration table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Candidato</th>
+                                                <th>Puesto Solicitado</th>
+                                                <th>Match Score (IA)</th>
+                                                <th>Riesgo Predictivo</th>
+                                                <th>Factores Clave</th>
+                                                <th>Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Javier Gil</td>
+                                                <td>Camarero de Sala</td>
+                                                <td><span class="badge badge-success">92%</span></td>
+                                                <td>Bajo</td>
+                                                <td>Experiencia Sector (+18), Rotación Baja (+5)</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info">Mover a Pipeline</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Elena Ramos</td>
+                                                <td>Jefe de Partida</td>
+                                                <td><span class="badge badge-warning">78%</span></td>
+                                                <td>Medio-Alto</td>
+                                                <td>Distancia Geográfica (-10), Experiencia Menor (-5)</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-dark">Revisar CV</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Daniela Ruiz</td>
+                                                <td>Auxiliar Cocina</td>
+                                                <td><span class="badge badge-success">88%</span></td>
+                                                <td>Bajo</td>
+                                                <td>Disponibilidad Inmediata (+12), Distancia Cercana (+8)</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info">Mover a Pipeline</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mario López</td>
+                                                <td>Camarero de Sala</td>
+                                                <td><span class="badge badge-danger">55%</span></td>
+                                                <td>ALTO</td>
+                                                <td>Rotación Alta (-25), Historial Corto (-15)</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-danger">Rechazar / Archivar</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Laura Martínez</td>
+                                                <td>Cocinera</td>
+                                                <td><span class="badge badge-warning">40%</span></td>
+                                                <td>MEDIO</td>
+                                                <td>Historial Medio (-10)</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-danger">Rechazar / Archivar</button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Carlos Sánchez</td>
+                                                <td>Recepcionista</td>
+                                                <td><span class="badge badge-success">20%</span></td>
+                                                <td>BAJO</td>
+                                                <td>Antigüedad Alta (+10)</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info">Mover a Pipeline</button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Andrea Ruiz</td>
+                                                <td>Responsable de Limpieza</td>
+                                                <td><span class="badge badge-danger">65%</span></td>
+                                                <td>ALTO</td>
+                                                <td>Rotación Reciente (-20), Historial Corto (-10)</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-danger">Rechazar / Archivar</button>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr class="mt-0 mb-4">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Historial de Consultas de Auditoría con el Motor IA</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="chat-table" class="table table-hover zero-configuration table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10%;">Tipo</th>
+                                                <th style="width: 35%;">Consulta (Usuario)</th>
+                                                <th style="width: 45%;">Respuesta de la IA</th>
+                                                <th style="width: 10%;">Hora</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-info">
+                                                <td><span class="badge badge-primary">Usuario</span></td>
+                                                <td>¿Por qué el riesgo de absentismo de Mario López es ALTO?</td>
+                                                <td>-</td>
+                                                <td>10:45</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="badge badge-dark">IA System</span></td>
+                                                <td>-</td>
+                                                <td>El modelo prioriza su **Rotación Alta** (múltiples empleos en 12 meses) como el factor de mayor peso negativo. Score ajustado a 55%.</td>
+                                                <td>10:45</td>
+                                            </tr>
+                                            <tr class="table-info">
+                                                <td><span class="badge badge-primary">Usuario</span></td>
+                                                <td>¿Qué otros candidatos tienen alto riesgo y están por debajo del 60% de Match Score?</td>
+                                                <td>-</td>
+                                                <td>11:02</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="badge badge-dark">IA System</span></td>
+                                                <td>-</td>
+                                                <td>Identificado 1 candidato más: **Silvia Peña** (48%, Cocinera) con factor de Riesgo: Historial de Bajas Recurrentes.</td>
+                                                <td>11:02</td>
+                                            </tr>
+                                            </tbody>
+                                    </table>
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="text" class="form-control" placeholder="Escribe tu consulta de auditoría o pregunta sobre un candidato...">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button"><i class="ti-comment-alt"></i> Consultar IA</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Diseñado e Implementado por ThirdWish Systems 2025</p>
+            </div>
+        </div>
+        </div>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+    
+    <script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="./js/plugins-init/datatables.init.js"></script>
+
+</body>
+
+</html>

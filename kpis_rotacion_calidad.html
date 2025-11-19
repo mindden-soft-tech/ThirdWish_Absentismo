@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Absentismo - KPIs de Rotación/Calidad</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    
+    <link href="./css/style.css" rel="stylesheet">
+    
+    <style>
+        .kpi-large {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        /* Estilos para simulación de Gráfico de Líneas (Chartist Trend) */
+        .chartist-line-sim {
+            height: 300px;
+            position: relative;
+            padding: 20px 0 20px 40px;
+            border-left: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin-left: 10px;
+        }
+        .data-point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .line-segment {
+            position: absolute;
+            height: 2px;
+            transform-origin: 0 0;
+            z-index: 5;
+        }
+        .line-rotation { background-color: #dc3545; } /* Rojo para Rotación */
+        .line-quality { background-color: #007bff; } /* Azul para Calidad */
+        
+        /* Simulación de Gráfico de Barras Horizontales */
+        .chartist-bar-horiz-sim {
+            padding: 10px;
+        }
+        .bar-label {
+            width: 80px;
+            float: left;
+            font-size: 0.8rem;
+            color: #6c757d;
+            padding-top: 5px;
+        }
+        .bar-track {
+            overflow: hidden;
+            height: 25px;
+            background-color: #f8f9fa;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                ThirdWish Systems
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first"><a href="dashboard.html">Dashboard</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Absentismo</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="analitica_predictiva_rrhh.html">Analítica Predictiva (RRHH)</a></li>
+                            <li><a href="gestion_reactiva_operaciones.html">Gestión Reactiva (Operaciones)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Soluciones ThirdWish</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Gestión Reactiva</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="gestion_automatica_turnos.html">Gestión Automática de Turnos</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Recruiting y Sustitución</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="pipe_line_urgente.html">Pipeline Urgente</a></li>
+                                    <li><a href="screening_ai.html">Screening IA</a></li>
+                                    <li><a href="matching_inteligente.html">Matching Inteligente</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="integracion_turnos_pipeline.html">Integración (Turnos / Pipeline)</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-chart-bar-33"></i><span class="nav-text">Informes y KPIs</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="coste_absentismo_vs_ahorro.html">Coste Absentismo vs Ahorro</a></li>
+                            <li><a href="impacto_pilotos.html">Impacto Pilotos</a></li>
+                            <li><a href="kips_absentismo.html">KPIs de Absentismo</a></li>
+                            <li><a href="kpis_rotacion_calidad.html">KPIs de Rotación/Calidad</a></li>
+                            <li><a href="benmarch_sectorial.html">Benchmarking Sectorial</a></li>
+                            <li><a href="roi.html">ROI del Proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Intervención Proactiva</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Pilotos de Intervención</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="ergonomia.html">Ergonomía / Musculoesquelética</a></li>
+                            <li><a href="salud_mental_estres.html">Salud Mental / Estrés</a></li>
+                            <li><a href="conciliacion_compromiso.html">Conciliación / Compromiso</a></li>
+                            <li><a href="gestion_clima_laboral.html">Gestión del Clima Laboral</a></li>
+                            <li><a href="seguimiento_bajas_largas.html">Seguimiento de Bajas Largas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Configuración</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="alertas_notificaciones.html">Alertas y Notificaciones</a></li>
+                            <li><a href="definicion_reglas_turnos.html">Definición de Centros/Turnos</a></li>
+                            <li><a href="reglas_algoritmos_turnos.html">Reglas del Algoritmo de Turnos</a></li>
+                            <li><a href="gestion_roles_permisos.html">Gestión de Roles/Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="soporte_ayuda.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                                class="nav-text">Soporte y Ayuda</span></a></li>
+                    <li class="nav-label">Recursos</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Documentación</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="manual_usuario.html">Manual de Usuario</a></li>
+                            <li><a href="table-datatable-basic.html">Guía de KPIs y Objetivos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>🤝 Estabilidad y Calidad de la Plantilla</h4>
+                            <p class="mb-0">Seguimiento de las métricas de Rotación (Voluntaria/Total) y su impacto en la productividad y la calidad del servicio.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Informes</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Rotación/Calidad</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Rotación Voluntaria (Anualizada)</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">15.5%</div>
+                                    <div class="stat-text text-white">Target: 12.0%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Tiempo Medio de Servicio</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">4.2 años</div>
+                                    <div class="stat-text text-white">Sector: 3.9 años</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Coste Medio de Sustitución</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">€2.5K</div>
+                                    <div class="stat-text text-white">Coste por empleado reemplazado</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-info text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Índice de Calidad/Error</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">3.1%</div>
+                                    <div class="stat-text text-white">Ej. Tasa de errores en órdenes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tendencia Mensual: Rotación Voluntaria vs. Índice de Calidad/Error</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="chartist-line-sim">
+                                    
+                                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 40px; text-align: right; font-size: 0.7rem; color: #dc3545;">
+                                        <div style="position: absolute; top: 0; right: 5px;">20%</div>
+                                        <div style="position: absolute; top: 50%; right: 5px;">15%</div>
+                                        <div style="position: absolute; bottom: 0; right: 5px;">10%</div>
+                                    </div>
+                                    
+                                    <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 40px; text-align: left; font-size: 0.7rem; color: #007bff;">
+                                        <div style="position: absolute; top: 0; left: 5px;">6%</div>
+                                        <div style="position: absolute; top: 50%; left: 5px;">3%</div>
+                                        <div style="position: absolute; bottom: 0; left: 5px;">0%</div>
+                                    </div>
+
+                                    <div class="data-point line-rotation" style="top: 60%; left: 10%;"></div>
+                                    <div class="data-point line-rotation" style="top: 40%; left: 25%;"></div>
+                                    <div class="data-point line-rotation" style="top: 50%; left: 40%;"></div>
+                                    <div class="data-point line-rotation" style="top: 30%; left: 55%;"></div>
+                                    <div class="data-point line-rotation" style="top: 45%; left: 70%;"></div>
+                                    <div class="data-point line-rotation" style="top: 40%; left: 85%;"></div>
+                                    
+                                    <div class="data-point line-quality" style="top: 25%; left: 10%;"></div>
+                                    <div class="data-point line-quality" style="top: 37%; left: 25%;"></div>
+                                    <div class="data-point line-quality" style="top: 41%; left: 40%;"></div>
+                                    <div class="data-point line-quality" style="top: 50%; left: 55%;"></div>
+                                    <div class="data-point line-quality" style="top: 47%; left: 70%;"></div>
+                                    <div class="data-point line-quality" style="top: 53%; left: 85%;"></div>
+                                    
+                                    </div>
+                                
+                                <div class="mt-3" style="display: flex; justify-content: space-around; font-size: 0.8rem; text-align: center; margin-left: 40px; margin-right: 40px;">
+                                    <span>Ene</span>
+                                    <span>Feb</span>
+                                    <span>Mar</span>
+                                    <span>Abr</span>
+                                    <span>May</span>
+                                    <span>Jun</span>
+                                </div>
+                                
+                                <div class="mt-3 text-center">
+                                    <p class="mb-1 d-inline-block mr-4"><i class="fa fa-circle text-danger"></i> Rotación Voluntaria</p>
+                                    <p class="mb-1 d-inline-block"><i class="fa fa-circle text-info"></i> Índice de Calidad/Error</p>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Rotación por Antigüedad (Fuga de Talento)</h4>
+                                    </div>
+                                    <div class="card-body chartist-bar-horiz-sim">
+                                        
+                                        <div>
+                                            <div class="bar-label">0-6 meses:</div>
+                                            <div class="bar-track">
+                                                <div class="bar-fill bg-danger" style="width: 40%;">40%</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bar-label">7-12 meses:</div>
+                                            <div class="bar-track">
+                                                <div class="bar-fill bg-warning" style="width: 25%;">25%</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bar-label">1-2 años:</div>
+                                            <div class="bar-track">
+                                                <div class="bar-fill bg-info" style="width: 20%;">20%</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bar-label">> 2 años:</div>
+                                            <div class="bar-track">
+                                                <div class="bar-fill bg-success" style="width: 15%;">15%</div>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted small mt-2">40% de la rotación ocurre en los primeros 6 meses.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12 col-md-6">
+                                <div class="card bg-dark text-white">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-white">Ratio de Sustitución Urgente (Pipeline)</h4>
+                                        <div class="stat-widget-one">
+                                            <div class="kpi-large text-warning">85%</div>
+                                            <div class="stat-text text-white">ITs de larga duración que requieren sustitución inmediata.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Desglose de KPIs de Rotación/Calidad por Centro de Coste</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered zero-configuration">
+                                        <thead>
+                                            <tr>
+                                                <th>Centro de Coste</th>
+                                                <th>Rotación Voluntaria</th>
+                                                <th>Tiempo Medio Servicio</th>
+                                                <th>Índice de Calidad/Error</th>
+                                                <th>Coste Sustitución</th>
+                                                <th>Acciones (Recruiting)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-danger">
+                                                <td>**Sur (Área 3)**</td>
+                                                <td>**19.5%**</td>
+                                                <td>3.1 años</td>
+                                                <td class="text-danger">**4.5%**</td>
+                                                <td>€2.8K</td>
+                                                <td>**Prioridad Alta** (Revisar matching)</td>
+                                            </tr>
+                                            <tr class="table-warning">
+                                                <td>Norte (Área 1)</td>
+                                                <td>16.0%</td>
+                                                <td>4.5 años</td>
+                                                <td>3.5%</td>
+                                                <td>€2.4K</td>
+                                                <td>Revisar Clima/Estrés</td>
+                                            </tr>
+                                            <tr class="table-success">
+                                                <td>Este (Área 4)</td>
+                                                <td>10.5%</td>
+                                                <td>5.8 años</td>
+                                                <td class="text-success">1.8%</td>
+                                                <td>€2.2K</td>
+                                                <td>Modelo de Referencia</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Diseñado e Implementado por ThirdWish Systems 2025</p>
+            </div>
+        </div>
+        </div>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+    
+    </body>
+
+</html>

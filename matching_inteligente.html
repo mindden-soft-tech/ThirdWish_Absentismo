@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Absentismo - Matching Inteligente</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    
+    <link href="./vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet"> 
+    <link href="./css/style.css" rel="stylesheet">
+
+    <style>
+        .match-factor-badge {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                ThirdWish Systems
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Buscar candidato..." aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-check-box"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>32</strong> nuevos candidatos procesados por la IA.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">Ahora</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">Ver todas las alertas <i
+                                            class="ti-arrow-right"></i></a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="./app-profile.html" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Perfil </span>
+                                    </a>
+                                    <a href="./page-login.html" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Cerrar Sesión </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first"><a href="dashboard.html">Dashboard</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Absentismo</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="analitica_predictiva_rrhh.html">Analítica Predictiva (RRHH)</a></li>
+                            <li><a href="gestion_reactiva_operaciones.html">Gestión Reactiva (Operaciones)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Soluciones ThirdWish</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Gestión Reactiva</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="gestion_automatica_turnos.html">Gestión Automática de Turnos</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Recruiting y Sustitución</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="pipe_line_urgente.html">Pipeline Urgente</a></li>
+                                    <li><a href="screening_ai.html">Screening IA</a></li>
+                                    <li><a href="matching_inteligente.html">Matching Inteligente</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="integracion_turnos_pipeline.html">Integración (Turnos / Pipeline)</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-chart-bar-33"></i><span class="nav-text">Informes y KPIs</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="coste_absentismo_vs_ahorro.html">Coste Absentismo vs Ahorro</a></li>
+                            <li><a href="impacto_pilotos.html">Impacto Pilotos</a></li>
+                            <li><a href="kips_absentismo.html">KPIs de Absentismo</a></li>
+                            <li><a href="kpis_rotacion_calidad.html">KPIs de Rotación/Calidad</a></li>
+                            <li><a href="benmarch_sectorial.html">Benchmarking Sectorial</a></li>
+                            <li><a href="roi.html">ROI del Proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Intervención Proactiva</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Pilotos de Intervención</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="ergonomia.html">Ergonomía / Musculoesquelética</a></li>
+                            <li><a href="salud_mental_estres.html">Salud Mental / Estrés</a></li>
+                            <li><a href="conciliacion_compromiso.html">Conciliación / Compromiso</a></li>
+                            <li><a href="gestion_clima_laboral.html">Gestión del Clima Laboral</a></li>
+                            <li><a href="seguimiento_bajas_largas.html">Seguimiento de Bajas Largas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Configuración</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="alertas_notificaciones.html">Alertas y Notificaciones</a></li>
+                            <li><a href="definicion_reglas_turnos.html">Definición de Centros/Turnos</a></li>
+                            <li><a href="reglas_algoritmos_turnos.html">Reglas del Algoritmo de Turnos</a></li>
+                            <li><a href="gestion_roles_permisos.html">Gestión de Roles/Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="soporte_ayuda.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                                class="nav-text">Soporte y Ayuda</span></a></li>
+                    <li class="nav-label">Recursos</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Documentación</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="manual_usuario.html">Manual de Usuario</a></li>
+                            <li><a href="table-datatable-basic.html">Guía de KPIs y Objetivos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Matching Inteligente de Candidatos</h4>
+                            <p class="mb-0">Conexión de candidatos pre-aprobados con necesidades de cobertura urgentes, optimizando el riesgo de absentismo por contexto.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Soluciones</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Matching Inteligente</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-timer text-danger border-danger"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Tiempo Medio de Cobertura</div>
+                                    <div class="stat-digit">18 Horas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-target text-success border-success"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Match Score Promedio (Urgente)</div>
+                                    <div class="stat-digit">89%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-shield text-info border-info"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Bajas Recurrentes Evitadas (Mes)</div>
+                                    <div class="stat-digit">5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-server text-warning border-warning"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Candidatos Disponibles (Apto)</div>
+                                    <div class="stat-digit">214</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-intro-title">📍 Definir la Necesidad de Cobertura</h4>
+                                <p>Especifica el contexto para el cálculo del Match Score Predictivo.</p>
+
+                                <div class="mt-4">
+                                    <label class="control-label">Centro de Trabajo/Ubicación</label>
+                                    <select class="form-control form-white">
+                                        <option>Centro 3 - Madrid Sur (Alta Rotación)</option>
+                                        <option>Centro 1 - Barcelona Este</option>
+                                        <option>Centro 5 - Valencia Capital</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="control-label">Puesto o Rol a Cubrir</label>
+                                    <select class="form-control form-white">
+                                        <option>Camarero/a de Sala (Urgente)</option>
+                                        <option>Jefe de Partida</option>
+                                        <option>Auxiliar de Cocina</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <label class="control-label">Turno Específico</label>
+                                    <select class="form-control form-white">
+                                        <option>Noche (23:00-07:00)</option>
+                                        <option>Mañana (07:00-15:00)</option>
+                                        <option>Tarde (15:00-23:00)</option>
+                                    </select>
+                                </div>
+
+                                <hr>
+                                
+                                <h5 class="mt-4">Filtros de Prioridad (Urgencia)</h5>
+                                
+                                <div class="mt-3">
+                                    <label class="control-label">Priorizar Proximidad Geográfica</label>
+                                    <input type="range" min="0" max="100" value="90" class="form-control">
+                                </div>
+                                <div class="mt-3">
+                                    <label class="control-label">Priorizar Experiencia en el Rol</label>
+                                    <input type="range" min="0" max="100" value="65" class="form-control">
+                                </div>
+
+                                <button class="btn btn-danger btn-sm mt-4 w-100"><i class="ti-reload"></i> Recalcular Matching</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Candidatos Priorizados para Cobertura Urgente</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="matching-table" class="table table-hover zero-configuration table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Candidato</th>
+                                                <th>Match Score Contextual</th>
+                                                <th>Riesgo Absentismo Específico</th>
+                                                <th>Factores de Match Positivo</th>
+                                                <th>Acción Urgente</th>
+                                            </tr>
+                                        </thead>
+                                            <tbody>
+                                                <tr class="table-success">
+                                                    <td>**Javier Gil**</td>
+                                                    <td><span class="badge badge-success">96%</span></td>
+                                                    <td>**Muy Bajo** (0.8%)</td>
+                                                    <td>
+                                                        <span class="badge badge-primary match-factor-badge">Vive a 4km (+15)</span>
+                                                        <span class="badge badge-primary match-factor-badge">Exp. en Turno Noche (+10)</span>
+                                                        <span class="badge badge-primary match-factor-badge">Baja Rotación (+5)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-success"><i class="ti-check"></i> Enviar Oferta</button>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td>Daniela Ruiz</td>
+                                                    <td><span class="badge badge-info">88%</span></td>
+                                                    <td>Bajo (3.1%)</td>
+                                                    <td>
+                                                        <span class="badge badge-secondary match-factor-badge">Exp. 3 años en Rol (+10)</span>
+                                                        <span class="badge badge-warning match-factor-badge">Distancia Media (-3)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-info"><i class="ti-email"></i> Contactar</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Elena Ramos</td>
+                                                    <td><span class="badge badge-warning">76%</span></td>
+                                                    <td>Medio (6.9%)</td>
+                                                    <td>
+                                                        <span class="badge badge-secondary match-factor-badge">Exp. Sector 5 años (+8)</span>
+                                                        <span class="badge badge-danger match-factor-badge">Historial en Turno Noche Alto Riesgo (-12)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-dark"><i class="ti-zoom-in"></i> Revisión Manual</button>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- Nuevas filas -->
+                                                <tr class="table-success">
+                                                    <td>Carlos Martínez</td>
+                                                    <td><span class="badge badge-success">92%</span></td>
+                                                    <td>Muy Bajo (1.2%)</td>
+                                                    <td>
+                                                        <span class="badge badge-primary match-factor-badge">Vive a 3km (+15)</span>
+                                                        <span class="badge badge-primary match-factor-badge">Experiencia Liderazgo (+12)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-success"><i class="ti-check"></i> Enviar Oferta</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Ana López</td>
+                                                    <td><span class="badge badge-info">85%</span></td>
+                                                    <td>Bajo (2.5%)</td>
+                                                    <td>
+                                                        <span class="badge badge-secondary match-factor-badge">Exp. 2 años en Rol (+8)</span>
+                                                        <span class="badge badge-warning match-factor-badge">Distancia Media (-4)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-info"><i class="ti-email"></i> Contactar</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Roberto Fernández</td>
+                                                    <td><span class="badge badge-warning">78%</span></td>
+                                                    <td>Medio (5.8%)</td>
+                                                    <td>
+                                                        <span class="badge badge-secondary match-factor-badge">Experiencia 4 años (+7)</span>
+                                                        <span class="badge badge-danger match-factor-badge">Historial Rotación Alta (-10)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-dark"><i class="ti-zoom-in"></i> Revisión Manual</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="table-success">
+                                                    <td>Lucía Gómez</td>
+                                                    <td><span class="badge badge-success">90%</span></td>
+                                                    <td>Muy Bajo (1.0%)</td>
+                                                    <td>
+                                                        <span class="badge badge-primary match-factor-badge">Vive a 5km (+10)</span>
+                                                        <span class="badge badge-primary match-factor-badge">Disponibilidad inmediata (+10)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-success"><i class="ti-check"></i> Enviar Oferta</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Fernando Díaz</td>
+                                                    <td><span class="badge badge-info">82%</span></td>
+                                                    <td>Bajo (3.7%)</td>
+                                                    <td>
+                                                        <span class="badge badge-secondary match-factor-badge">Exp. en Sector 3 años (+6)</span>
+                                                        <span class="badge badge-warning match-factor-badge">Distancia Larga (-5)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-info"><i class="ti-email"></i> Contactar</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>María Torres</td>
+                                                    <td><span class="badge badge-warning">77%</span></td>
+                                                    <td>Medio (6.5%)</td>
+                                                    <td>
+                                                        <span class="badge badge-secondary match-factor-badge">Experiencia 5 años (+9)</span>
+                                                        <span class="badge badge-danger match-factor-badge">Historial Turno Noche (+8)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-dark"><i class="ti-zoom-in"></i> Revisión Manual</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="table-success">
+                                                    <td>Diego Pérez</td>
+                                                    <td><span class="badge badge-success">95%</span></td>
+                                                    <td>Muy Bajo (0.9%)</td>
+                                                    <td>
+                                                        <span class="badge badge-primary match-factor-badge">Vive a 2km (+15)</span>
+                                                        <span class="badge badge-primary match-factor-badge">Experiencia Técnica (+10)</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-success"><i class="ti-check"></i> Enviar Oferta</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Análisis Detallado de Factores de Riesgo (Contexto Específico)</h4>
+                                <p class="mb-0">Evaluación de cómo los atributos del **Candidato Seleccionado** interactúan con el **Puesto Urgente**.</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h5>Factores de Riesgo para 'Centro 3 - Noche'</h5>
+                                        <p class="mb-1 text-danger">🔴 **Rotación Alta en Turno Noche:** El factor más penalizado históricamente en este contexto.</p>
+                                        <p class="mb-1 text-warning">🟡 **Distancia > 15km:** Aumenta el riesgo predictivo en un 4% para este centro.</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h5>Evaluación del Candidato Javier Gil (Score 96%)</h5>
+                                        <p class="mb-1">✅ **Mitigación de Riesgo:** Su proximidad (4km) y experiencia en turnos similares de alta demanda compensan el riesgo histórico del puesto.</p>
+                                        <p class="mb-1">📊 **Recomendación IA:** Máxima prioridad. El riesgo predicho de absentismo es 0.8%, el más bajo de todo el *pipeline* para esta necesidad.</p>
+                                        <button class="btn btn-success mt-3"><i class="ti-briefcase"></i> Generar Contrato Automatizado</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Diseñado e Implementado por ThirdWish Systems 2025</p>
+            </div>
+        </div>
+        </div>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+    
+    <script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="./js/plugins-init/datatables.init.js"></script>
+
+</body>
+
+</html>

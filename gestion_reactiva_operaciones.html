@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Absentismo - Gestión Reactiva (Operaciones)</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link href="./vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet"> 
+    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                ThirdWish Systems
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-user"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Ausencia</strong> no cubierta en Centro 04.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Riesgo Alto</strong> de absentismo en Turno Noche.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="danger"><i class="ti-bookmark"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Piloto Ergonomía</strong>: Incidencia Musculoesquelética reducida.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="primary"><i class="ti-heart"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Notificación Push</strong>: 8 propuestas aceptadas.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-image"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong> Candidato</strong> de Reemplazo Urgente pre-aprobado.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">Ver todas las alertas <i
+                                            class="ti-arrow-right"></i></a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="./app-profile.html" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Perfil </span>
+                                    </a>
+                                    <a href="./email-inbox.html" class="dropdown-item">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="ml-2">Mensajes </span>
+                                    </a>
+                                    <a href="./page-login.html" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Cerrar Sesión </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first"><a href="dashboard.html">Dashboard</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Absentismo</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="analitica_predictiva_rrhh.html">Analítica Predictiva (RRHH)</a></li>
+                            <li><a href="gestion_reactiva_operaciones.html">Gestión Reactiva (Operaciones)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Soluciones ThirdWish</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Gestión Reactiva</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="gestion_automatica_turnos.html">Gestión Automática de Turnos</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Recruiting y Sustitución</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="pipe_line_urgente.html">Pipeline Urgente</a></li>
+                                    <li><a href="screening_ai.html">Screening IA</a></li>
+                                    <li><a href="matching_inteligente.html">Matching Inteligente</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="integracion_turnos_pipeline.html">Integración (Turnos / Pipeline)</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-chart-bar-33"></i><span class="nav-text">Informes y KPIs</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="coste_absentismo_vs_ahorro.html">Coste Absentismo vs Ahorro</a></li>
+                            <li><a href="impacto_pilotos.html">Impacto Pilotos</a></li>
+                            <li><a href="kips_absentismo.html">KPIs de Absentismo</a></li>
+                            <li><a href="kpis_rotacion_calidad.html">KPIs de Rotación/Calidad</a></li>
+                            <li><a href="benmarch_sectorial.html">Benchmarking Sectorial</a></li>
+                            <li><a href="roi.html">ROI del Proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Intervención Proactiva</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Pilotos de Intervención</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="ergonomia.html">Ergonomía / Musculoesquelética</a></li>
+                            <li><a href="salud_mental_estres.html">Salud Mental / Estrés</a></li>
+                            <li><a href="conciliacion_compromiso.html">Conciliación / Compromiso</a></li>
+                            <li><a href="gestion_clima_laboral.html">Gestión del Clima Laboral</a></li>
+                            <li><a href="seguimiento_bajas_largas.html">Seguimiento de Bajas Largas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Configuración</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="alertas_notificaciones.html">Alertas y Notificaciones</a></li>
+                            <li><a href="definicion_reglas_turnos.html">Definición de Centros/Turnos</a></li>
+                            <li><a href="reglas_algoritmos_turnos.html">Reglas del Algoritmo de Turnos</a></li>
+                            <li><a href="gestion_roles_permisos.html">Gestión de Roles/Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="soporte_ayuda.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                                class="nav-text">Soporte y Ayuda</span></a></li>
+                    <li class="nav-label">Recursos</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Documentación</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="manual_usuario.html">Manual de Usuario</a></li>
+                            <li><a href="table-datatable-basic.html">Guía de KPIs y Objetivos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6">
+                        <div class="welcome-text">
+                            <h4>Bienvenido, Jefe de Operaciones!</h4>
+                            <p class="mb-0">Dashboard de Gestión Reactiva de Absentismo</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Gestión Reactiva</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-timer text-primary border-primary"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Tiempo Respuesta Ausencias</div>
+                                    <div class="stat-digit">28 Min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-hand-point-up text-danger border-danger"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Casos Intervención Manual</div>
+                                    <div class="stat-digit">4%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-bar-chart-alt text-warning border-warning"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Ahorro Sustituciones (Mes)</div>
+                                    <div class="stat-digit">2.345 €</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-arrow-circle-down text-success border-success"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Reducción Absentismo (QW)</div>
+                                    <div class="stat-digit">0.4 Ptos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tasa de Absentismo por Unidad y Turno (Tiempo Real)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart-absentismo-operaciones" class="ct-chart ct-golden-section"></div>
+                                <p class="text-center mt-3">Visualización de las unidades más afectadas en las últimas 24h.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Sustituciones Urgentes (Últimos 7 Días)</h4>
+                                <div class="card-action">
+                                    <div class="dropdown">
+                                        <a href="#" data-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">Ver Historial Completo</a>
+                                            <a class="dropdown-item" href="#">Filtrar por Centro</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha/Hora</th>
+                                                <th>Unidad / Puesto</th>
+                                                <th>Ausencia</th>
+                                                <th>Cobertura</th>
+                                                <th>Tiempo (Min)</th>
+                                                <th>Acción Manual</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>20 Nov / 06:30</td>
+                                                <td>Cocina 1 / Cocinero</td>
+                                                <td><span class="badge badge-danger">Gripe (IT)</span></td>
+                                                <td>Automática (Interna)</td>
+                                                <td>23</td>
+                                                <td><span class="badge badge-success">No</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>19 Nov / 14:00</td>
+                                                <td>Sala 3 / Camarero</td>
+                                                <td><span class="badge badge-warning">Musculoesq.</span></td>
+                                                <td>Manual (Externa)</td>
+                                                <td>65</td>
+                                                <td><span class="badge badge-danger">Sí</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>18 Nov / 22:00</td>
+                                                <td>Almacén / Reponedor</td>
+                                                <td><span class="badge badge-info">Estrés</span></td>
+                                                <td>Automática (Push)</td>
+                                                <td>15</td>
+                                                <td><span class="badge badge-success">No</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>17 Nov / 08:45</td>
+                                                <td>Cocina 2 / Auxiliar</td>
+                                                <td><span class="badge badge-danger">Común</span></td>
+                                                <td>Automática (Interna)</td>
+                                                <td>19</td>
+                                                <td><span class="badge badge-success">No</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>16 Nov / 11:15</td>
+                                                <td>Sala 1 / Hostess</td>
+                                                <td><span class="badge badge-warning">Otros</span></td>
+                                                <td>Manual (Externa)</td>
+                                                <td>120</td>
+                                                <td><span class="badge badge-danger">Sí</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Timeline de Eventos (Gestión Reactiva)</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="timeline">
+                                    <li>
+                                        <div class="timeline-badge info"><i class="fa fa-info"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h5 class="timeline-title">07:05 AM</h5>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Sistema: Ausencia por Baja (Sala 3) no cubierta automáticamene. **Alerta a Operaciones.**</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timeline-badge success"><i class="fa fa-check"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h5 class="timeline-title">06:48 AM</h5>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Sistema: Cobertura Urgente aceptada por Emp. ID#145 (Cocina 1).</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timeline-badge primary"><i class="fa fa-bell"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h5 class="timeline-title">06:30 AM</h5>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Ausencia detectada (Turno Mañana) en Cocina 1. Algoritmo inicia envío de notificaciones.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tareas Pendientes (Centro 04)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="todo-list">
+                                    <div class="tdl-holder">
+                                        <div class="tdl-content">
+                                            <ul id="todo_list">
+                                                <li class="default-task">
+                                                    <p>Intervenir manualmente en Sala 3 (Riesgo de Cobertura).</p>
+                                                </li>
+                                                <li class="default-task">
+                                                    <p>Revisar y aprobar solicitud de horas extra para Emp. ID#230.</p>
+                                                </li>
+                                                <li class="default-task">
+                                                    <p>Añadir 2 candidatos de refuerzo al Pipeline Urgente.</p>
+                                                </li>
+                                                <li class="default-task">
+                                                    <p>Enviar feedback sobre la sustitución de ayer (Sala 1).</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Diseñado e Implementado por ThirdWish Systems 2025</p>
+            </div>
+        </div>
+        </div>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+
+    <script src="./vendor/chartist/js/chartist.min.js"></script>
+    <script src="./vendor/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+    
+    <script>
+        // Código para inicializar el gráfico de absentismo para Operaciones (Gráfico de Barras por Unidad/Turno)
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var dataOperaciones = {
+                labels: ['Cocina 1 (T)', 'Sala 3 (N)', 'Almacén (M)', 'Cocina 2 (T)', 'Sala 1 (N)'],
+                series: [
+                    [15, 12, 8, 10, 18] // Tasa de absentismo puntual en %
+                ]
+            };
+
+            var optionsOperaciones = {
+                seriesBarDistance: 10,
+                reverseData: false,
+                horizontalBars: true, // Barras horizontales para mejor lectura de unidades/turnos
+                axisY: {
+                    offset: 70
+                },
+                axisX: {
+                    labelInterpolationFnc: function(value) {
+                        return value + '%';
+                    }
+                },
+                plugins: [
+                    Chartist.plugins.tooltip()
+                ]
+            };
+
+            new Chartist.Bar('#chart-absentismo-operaciones', dataOperaciones, optionsOperaciones);
+        });
+    </script>
+    </body>
+
+</html>

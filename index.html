@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Systems - Gestión de Absentismo</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link href="./css/style.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('images/fondo_index.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Esto asegura que la imagen de fondo permanezca fija al hacer scroll */
+        }
+        .authincation {
+            background-color: rgba(255, 255, 255, 0.85); /* Un fondo semi-transparente para la tarjeta de login para mejor legibilidad */
+            border-radius: 8px;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body class="h-100">
+    <div class="authincation h-100">
+        <div class="container-fluid h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+                                    <h4 class="text-center mb-4">Acceso a la Plataforma ThirdWish - Absentismo</h4>
+                                    <form action="index.html">
+                                        <div class="form-group">
+                                            <label><strong>Usuario/Email</strong></label>
+                                            <input type="email" class="form-control" value="tu.usuario@empresa.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label><strong>Contraseña</strong></label>
+                                            <input type="password" class="form-control" value="**********">
+                                        </div>
+                                        <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                            <div class="form-group">
+                                                <div class="form-check ml-2">
+                                                    <input class="form-check-input" type="checkbox" id="basic_checkbox_1">
+                                                    <label class="form-check-label" for="basic_checkbox_1">Recordarme</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <a href="page-forgot-password.html">¿Olvidaste la Contraseña?</a>
+                                            </div>
+                                        </div>
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='dashboard.html'">
+                                                    Iniciar Sesión
+                                                </button>
+                                            </div>
+
+                                    </form>
+                                    <div class="new-account mt-3">
+                                        <p>¿Problemas de acceso? <a class="text-primary" href="#">Contacta con Soporte</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+
+</body>
+
+</html>

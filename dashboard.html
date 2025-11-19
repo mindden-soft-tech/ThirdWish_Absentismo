@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Absentismo - Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link href="./vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                ThirdWish Systems
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-user"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Ausencia</strong> no cubierta en Centro 04.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Riesgo Alto</strong> de absentismo en Turno Noche.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="danger"><i class="ti-bookmark"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Piloto Ergonomía</strong>: Incidencia Musculoesquelética reducida.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="primary"><i class="ti-heart"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Notificación Push</strong>: 8 propuestas aceptadas.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-image"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong> Candidato</strong> de Reemplazo Urgente pre-aprobado.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">Ver todas las alertas <i
+                                            class="ti-arrow-right"></i></a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="./app-profile.html" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Perfil </span>
+                                    </a>
+                                    <a href="./email-inbox.html" class="dropdown-item">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="ml-2">Mensajes </span>
+                                    </a>
+                                    <a href="./page-login.html" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Cerrar Sesión </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first"><a href="dashboard.html">Dashboard</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Absentismo</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="analitica_predictiva_rrhh.html">Analítica Predictiva (RRHH)</a></li>
+                            <li><a href="gestion_reactiva_operaciones.html">Gestión Reactiva (Operaciones)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Soluciones ThirdWish</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Gestión Reactiva</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="gestion_automatica_turnos.html">Gestión Automática de Turnos</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Recruiting y Sustitución</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="pipe_line_urgente.html">Pipeline Urgente</a></li>
+                                    <li><a href="screening_ai.html">Screening IA</a></li>
+                                    <li><a href="matching_inteligente.html">Matching Inteligente</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="integracion_turnos_pipeline.html">Integración (Turnos / Pipeline)</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-chart-bar-33"></i><span class="nav-text">Informes y KPIs</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="coste_absentismo_vs_ahorro.html">Coste Absentismo vs Ahorro</a></li>
+                            <li><a href="impacto_pilotos.html">Impacto Pilotos</a></li>
+                            <li><a href="kips_absentismo.html">KPIs de Absentismo</a></li>
+                            <li><a href="kpis_rotacion_calidad.html">KPIs de Rotación/Calidad</a></li>
+                            <li><a href="benmarch_sectorial.html">Benchmarking Sectorial</a></li>
+                            <li><a href="roi.html">ROI del Proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Intervención Proactiva</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Pilotos de Intervención</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="ergonomia.html">Ergonomía / Musculoesquelética</a></li>
+                            <li><a href="salud_mental_estres.html">Salud Mental / Estrés</a></li>
+                            <li><a href="conciliacion_compromiso.html">Conciliación / Compromiso</a></li>
+                            <li><a href="gestion_clima_laboral.html">Gestión del Clima Laboral</a></li>
+                            <li><a href="seguimiento_bajas_largas.html">Seguimiento de Bajas Largas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Configuración</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="alertas_notificaciones.html">Alertas y Notificaciones</a></li>
+                            <li><a href="definicion_reglas_turnos.html">Definición de Centros/Turnos</a></li>
+                            <li><a href="reglas_algoritmos_turnos.html">Reglas del Algoritmo de Turnos</a></li>
+                            <li><a href="gestion_roles_permisos.html">Gestión de Roles/Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="soporte_ayuda.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                                class="nav-text">Soporte y Ayuda</span></a></li>
+                    <li class="nav-label">Recursos</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Documentación</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="manual_usuario.html">Manual de Usuario</a></li>
+                            <li><a href="table-datatable-basic.html">Guía de KPIs y Objetivos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hola, Jefe de Centro!</h4>
+                            <p class="mb-0">Dashboard de Gestión Reactiva de Absentismo</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Gestión Reactiva</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-money text-success border-success"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Ahorro Sustituciones (6M)</div>
+                                    <div class="stat-digit">429,000 €</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-user text-primary border-primary"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Reducción Absentismo (QW)</div>
+                                    <div class="stat-digit">0.5 Puntos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-layout-grid2 text-pink border-pink"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Tiempo Respuesta Ausencias</div>
+                                    <div class="stat-digit">28 Minutos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-link text-danger border-danger"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Casos de Intervención Manual</div>
+                                    <div class="stat-digit">12%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tasa de Absentismo por Unidad y Turno (Tiempo Real)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="ct-bar-chart mt-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="ct-pie-chart"></div>
+                                <h4 class="card-title text-center mt-3">Causas Principales del Absentismo</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Sustituciones Urgentes (Últimos 7 Días)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table student-data-table m-t-20">
+                                        <thead>
+                                            <tr>
+                                                <th>Centro Afectado</th>
+                                                <th>Turno</th>
+                                                <th>Causa de Ausencia</th>
+                                                <th>Cobertura Automática</th>
+                                                <th>Tiempo de Cobertura</th>
+                                                <th>Coste Estimado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Centro 005 - Hospital</td>
+                                                <td>Mañana</td>
+                                                <td>Traumatología</td>
+                                                <td>
+                                                    Interna
+                                                </td>
+                                                <td>
+                                                    21 min
+                                                </td>
+                                                <td>
+                                                    Estándar
+                                                </td>
+                                                <td>20/04/2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Centro 012 - Colectividad</td>
+                                                <td>Tarde</td>
+                                                <td>Estrés/Ansiedad</td>
+                                                <td>
+                                                    Pipeline Externo
+                                                </td>
+                                                <td>
+                                                    4.5 horas
+                                                </td>
+                                                <td>
+                                                    127 €
+                                                </td>
+                                                <td>20/04/2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Centro 001 - Catering</td>
+                                                <td>Noche</td>
+                                                <td>Musculoesquelética</td>
+                                                <td>
+                                                    Horas Extra
+                                                </td>
+                                                <td>
+                                                    3.2 horas
+                                                </td>
+                                                <td>
+                                                    Premium
+                                                </td>
+                                                <td>20/04/2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Centro 022 - Colegios</td>
+                                                <td>Mañana</td>
+                                                <td>Común (Gripe)</td>
+                                                <td>
+                                                    Interna
+                                                </td>
+                                                <td>
+                                                    15 min
+                                                </td>
+                                                <td>
+                                                    Estándar
+                                                </td>
+                                                <td>20/04/2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Centro 009 - Hospital</td>
+                                                <td>Tarde</td>
+                                                <td>Traumatología</td>
+                                                <td>
+                                                    Pipeline Externo
+                                                </td>
+                                                <td>
+                                                    6.1 horas
+                                                </td>
+                                                <td>
+                                                    127 €
+                                                </td>
+                                                <td>20/04/2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Centro 003 - Colectividad</td>
+                                                <td>Noche</td>
+                                                <td>Conciliación</td>
+                                                <td>
+                                                    Interna
+                                                </td>
+                                                <td>
+                                                    45 min
+                                                </td>
+                                                <td>
+                                                    Estándar
+                                                </td>
+                                                <td>20/04/2025</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Centro 015 - Catering</td>
+                                                <td>Mañana</td>
+                                                <td>Musculoesquelética</td>
+                                                <td>
+                                                    Interna
+                                                </td>
+                                                <td>
+                                                    18 min
+                                                </td>
+                                                <td>
+                                                    Estándar
+                                                </td>
+                                                <td>20/04/2025</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 col-xxl-6 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Timeline de Eventos de Gestión Reactiva</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="widget-timeline">
+                                    <ul class="timeline">
+                                        <li>
+                                            <div class="timeline-badge primary"></div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>Hace 10 minutos</span>
+                                                <h6 class="m-t-5">Ausencia en Centro 04. Algoritmo activado.</h6>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <div class="timeline-badge warning">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>Hace 20 minutos</span>
+                                                <h6 class="m-t-5">Propuesta de cobertura interna enviada a 3 empleados.</h6>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <div class="timeline-badge danger">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>Hace 30 minutos</span>
+                                                <h6 class="m-t-5">Activación preventiva de alerta por alto riesgo de ausencia (Turno Noche).</h6>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <div class="timeline-badge success">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>Hace 15 minutos</span>
+                                                <h6 class="m-t-5">Empleado Acepta propuesta de turno extra. Cobertura en 28 min.</h6>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <div class="timeline-badge warning">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>Hace 20 minutos</span>
+                                                <h6 class="m-t-5">Nuevo candidato pre-aprobado añadido al Pipeline de Sustitución Urgente.</h6>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <div class="timeline-badge dark">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>Hace 20 minutos</span>
+                                                <h6 class="m-t-5">Incidencia de Nivel 3. Intervención manual requerida (Centro 001).</h6>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <div class="timeline-badge info">
+                                            </div>
+                                            <a class="timeline-panel text-muted" href="#">
+                                                <span>Hace 30 minutos</span>
+                                                <h6 class="m-t-5">Registro de 180 ausencias procesadas en el día de hoy.</h6>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-xxl-6 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Noticias del Dashboard / Próximos Pilotos</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="recent-comment m-t-15">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/4.png" alt="..."></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading text-primary">Equipo Central RRHH</h4>
+                                            <p>Recordatorio: Se inicia la Fase 2 del Piloto de Conciliación en el segmento Hoteles.</p>
+                                            <p class="comment-date">hace 10 min</p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/2.png" alt="..."></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading text-success">ThirdWish Systems</h4>
+                                            <p>Nueva mejora: Aumentada precisión del Algoritmo de Aceptación al 78%.</p>
+                                            <p class="comment-date">hace 1 hora</p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/3.png" alt="..."></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading text-danger">Salud Laboral</h4>
+                                            <p>Informe Semanal: Las patologías traumáticas siguen siendo la causa principal en centros de restauración.</p>
+                                            <div class="comment-date">Ayer</div>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/4.png" alt="..."></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading text-primary">Jefe de Área (Norte)</h4>
+                                            <p>Consulta: ¿Cómo puedo reducir el % de intervención manual en mi área?</p>
+                                            <p class="comment-date">hace 10 min</p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/2.png" alt="..."></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading text-success">ThirdWish Systems</h4>
+                                            <p>Próxima función: Incentivos gamificados para aumentar la respuesta a notificaciones push.</p>
+                                            <p class="comment-date">hace 1 hora</p>
+                                        </div>
+                                    </div>
+                                    <div class="media no-border">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/3.png" alt="..."></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading text-info">RRHH Central</h4>
+                                            <p>Objetivo 12 Meses: Tasa de Absentismo del 9.0% alcanzada.</p>
+                                            <div class="comment-date">Ayer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xxl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tareas Pendientes (Gestión de Centro)</h4>
+                            </div>
+                            <div class="card-body px-0">
+                                <div class="todo-list">
+                                    <div class="tdl-holder">
+                                        <div class="tdl-content widget-todo2 mr-4">
+                                            <ul id="todo_list">
+                                                <li><label><input type="checkbox"><i></i><span>Revisar propuestas manuales de cobertura.</span><a href='#'
+                                                            class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox" checked><i></i><span>Enviar feedback sobre calidad de sustituciones temporales.</span><a
+                                                            href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox"><i></i><span>Reunión sobre piloto de ergonomía con Salud Laboral.</span><a href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox" checked><i></i><span>Validar los datos de absentismo del mes anterior.</span><a href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox" checked><i></i><span>Analizar los "Puntos Calientes" identificados.</span><a
+                                                            href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox"><i></i><span>Solicitar entrevista para candidato del Pipeline Urgente.</span><a href='#' class="ti-trash"></a></label></li>
+                                            </ul>
+                                        </div>
+                                        <div class="px-4">
+                                            <input type="text" class="tdl-new form-control" placeholder="Añadir nueva tarea y pulsar 'Enter'...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-xxl-6 col-lg-6 col-md-12">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6 col-md-6">
+                                <div class="card">
+                                    <div class="social-graph-wrapper widget-facebook">
+                                        <span class="s-icon"><i class="fa fa-percent"></i></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 border-right">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">73</span> %</h4>
+                                                <p class="m-0">Cobertura Interna</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">24</span> %</h4>
+                                                <p class="m-0">Reducción Coste</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6 col-md-6">
+                                <div class="card">
+                                    <div class="social-graph-wrapper widget-linkedin">
+                                        <span class="s-icon"><i class="fa fa-users"></i></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 border-right">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">1,847</span></h4>
+                                                <p class="m-0">Candidatos Pool Activo</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">7,8</span> / 10</h4>
+                                                <p class="m-0">Calidad Sustitución</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6 col-md-6">
+                                <div class="card">
+                                    <div class="social-graph-wrapper widget-googleplus">
+                                        <span class="s-icon"><i class="fa fa-clock-o"></i></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 border-right">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">6,3</span> Horas</h4>
+                                                <p class="m-0">Time-to-fill Urgente</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">11</span> Minutos</h4>
+                                                <p class="m-0">Identif. Candidatos</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6 col-md-6">
+                                <div class="card">
+                                    <div class="social-graph-wrapper widget-twitter">
+                                        <span class="s-icon"><i class="fa fa-line-chart"></i></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 border-right">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">340</span> %</h4>
+                                                <p class="m-0">ROI Proyectado (Año 1)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                                <h4 class="m-1"><span class="counter">71</span> %</h4>
+                                                <p class="m-0">Precisión Predictiva</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="year-calendar"></div>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Resumen de Costes por Ausencia</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table student-data-table m-t-20">
+                                        <thead>
+                                            <tr>
+                                                <th>Tipo de Ausencia</th>
+                                                <th>Coste Teórico Anual</th>
+                                                <th>Tasa Actual</th>
+                                                <th>Coste por Incidencia (Media)</th>
+                                                <th>Fecha Última Actualización</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td>
+                                                    Absentismo Total
+                                                </td>
+                                                <td>
+                                                    23,000,000 €
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-primary">11.5 %</span>
+                                                </td>
+                                                <td>
+                                                    N/A
+                                                </td>
+                                                <td>
+                                                    10/05/2025
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    Coste Sustituciones Urgentes
+                                                </td>
+                                                <td>
+                                                    47€
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-warning">Reducción 24%</span>
+                                                </td>
+                                                <td>
+                                                    47€ (Ahorro medio)
+                                                </td>
+                                                <td>
+                                                    10/05/2025
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    Bajas Musculoesqueléticas
+                                                </td>
+                                                <td>
+                                                    Pendiente
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-primary">Alto</span>
+                                                </td>
+                                                <td>
+                                                    Pendiente
+                                                </td>
+                                                <td>
+                                                    10/05/2025
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    Coste por Contratación Urgente
+                                                </td>
+                                                <td>
+                                                    N/A
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-danger">Reducción 32%</span>
+                                                </td>
+                                                <td>
+                                                    127€ (Actual)
+                                                </td>
+                                                <td>
+                                                    10/05/2025
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    Impacto en Calidad de Servicio
+                                                </td>
+                                                <td>
+                                                    N/A
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-primary">Mejora 47%</span>
+                                                </td>
+                                                <td>
+                                                    7.8/10
+                                                </td>
+                                                <td>
+                                                    10/05/2025
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Diseñado e Implementado por ThirdWish Systems 2025</p>
+                <p>Distribuido por <a href="https://themewagon.com/" target="_blank">Themewagon</a></p>
+            </div>
+        </div>
+        </div>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+
+    <script src="./vendor/chartist/js/chartist.min.js"></script>
+
+    <script src="./vendor/moment/moment.min.js"></script>
+    <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
+
+
+    <script src="./js/dashboard/dashboard-2.js"></script>
+    </body>
+
+</html>

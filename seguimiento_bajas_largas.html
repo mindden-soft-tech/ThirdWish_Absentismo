@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ThirdWish Absentismo - Seguimiento de Bajas Largas</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    
+    <link href="./css/style.css" rel="stylesheet">
+    
+    <style>
+        .kpi-large {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        .funnel-sim {
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+        .funnel-step {
+            width: 80%;
+            padding: 5px 10px;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                ThirdWish Systems
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first"><a href="dashboard.html">Dashboard</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Absentismo</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="analitica_predictiva_rrhh.html">Analítica Predictiva (RRHH)</a></li>
+                            <li><a href="gestion_reactiva_operaciones.html">Gestión Reactiva (Operaciones)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label">Soluciones ThirdWish</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Gestión Reactiva</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="gestion_automatica_turnos.html">Gestión Automática de Turnos</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Recruiting y Sustitución</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="pipe_line_urgente.html">Pipeline Urgente</a></li>
+                                    <li><a href="screening_ai.html">Screening IA</a></li>
+                                    <li><a href="matching_inteligente.html">Matching Inteligente</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="integracion_turnos_pipeline.html">Integración (Turnos / Pipeline)</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-chart-bar-33"></i><span class="nav-text">Informes y KPIs</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="coste_absentismo_vs_ahorro.html">Coste Absentismo vs Ahorro</a></li>
+                            <li><a href="impacto_pilotos.html">Impacto Pilotos</a></li>
+                            <li><a href="kips_absentismo.html">KPIs de Absentismo</a></li>
+                            <li><a href="kpis_rotacion_calidad.html">KPIs de Rotación/Calidad</a></li>
+                            <li><a href="benmarch_sectorial.html">Benchmarking Sectorial</a></li>
+                            <li><a href="roi.html">ROI del Proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Intervención Proactiva</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-world-2"></i><span class="nav-text">Pilotos de Intervención</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="ergonomia.html">Ergonomía / Musculoesquelética</a></li>
+                            <li><a href="salud_mental_estres.html">Salud Mental / Estrés</a></li>
+                            <li><a href="conciliacion_compromiso.html">Conciliación / Compromiso</a></li>
+                            <li><a href="gestion_clima_laboral.html">Gestión del Clima Laboral</a></li>
+                            <li><a href="seguimiento_bajas_largas.html">Seguimiento de Bajas Largas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-plug"></i><span class="nav-text">Configuración</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="alertas_notificaciones.html">Alertas y Notificaciones</a></li>
+                            <li><a href="definicion_reglas_turnos.html">Definición de Centros/Turnos</a></li>
+                            <li><a href="reglas_algoritmos_turnos.html">Reglas del Algoritmo de Turnos</a></li>
+                            <li><a href="gestion_roles_permisos.html">Gestión de Roles/Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="soporte_ayuda.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
+                                class="nav-text">Soporte y Ayuda</span></a></li>
+                    <li class="nav-label">Recursos</li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Documentación</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="manual_usuario.html">Manual de Usuario</a></li>
+                            <li><a href="table-datatable-basic.html">Guía de KPIs y Objetivos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>⏳ Piloto de Intervención: Seguimiento de Bajas Largas</h4>
+                            <p class="mb-0">Gestión de casos de Incapacidad Temporal (IT) con duración superior a 60 días para planificar reincorporaciones efectivas.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pilotos</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Bajas Largas</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Duración Media (> 60 días)</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">155 días</div>
+                                    <div class="stat-text text-white">vs. 180 días Media Sectorial</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Éxito de Reincorporación (6M)</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">85%</div>
+                                    <div class="stat-text text-white">Sin recaída en 6 meses</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Casos Activos de IT Larga</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">12</div>
+                                    <div class="stat-text text-white">Casos con > 60 días de duración</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h4 class="card-title text-white">Coste Teórico Anual Estimado</h4>
+                                <div class="stat-widget-one">
+                                    <div class="kpi-large text-white">€250K</div>
+                                    <div class="stat-text text-white">Impacto económico directo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Funnel de Gestión de Casos de Reincorporación (Últimos 12M)</h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="text-muted">El objetivo es maximizar la eficiencia en las etapas 2 y 3, que representan los mayores cuellos de botella.</p>
+                                <div class="funnel-sim">
+                                    <div class="funnel-step bg-primary" style="width: 100%;">1. Notificación Automática (100% de los casos)</div>
+                                    <div class="funnel-step bg-info" style="width: 90%;">2. Evaluación Médica (90% de los casos)</div>
+                                    <div class="funnel-step bg-warning" style="width: 70%;">3. Planificación de Readaptación del Puesto (70% de los casos)</div>
+                                    <div class="funnel-step bg-success" style="width: 50%;">4. Reincorporación Efectiva y Seguimiento (50% de los casos)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Casos de Baja Larga Activos (> 60 días)</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped table-bordered zero-configuration">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Empleado</th>
+                                            <th>Días de Baja</th>
+                                            <th>Causa Principal</th>
+                                            <th>Próxima Revisión</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-danger">
+                                            <td>EMP-0056</td>
+                                            <td>**215**</td>
+                                            <td>Musculoesquelética (Espalda)</td>
+                                            <td>30/11/2025</td>
+                                            <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#casoModal1">Gestionar Caso</button></td>
+                                        </tr>
+                                        <tr class="table-warning">
+                                            <td>EMP-0112</td>
+                                            <td>**98**</td>
+                                            <td>Salud Mental (Ansiedad)</td>
+                                            <td>15/12/2025</td>
+                                            <td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#casoModal2">Gestionar Caso</button></td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <td>EMP-0450</td>
+                                            <td>**65**</td>
+                                            <td>Cirugía (Recuperación)</td>
+                                            <td>05/01/2026</td>
+                                            <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#casoModal1">Gestionar Caso</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="casoModal1" tabindex="-1" role="dialog" aria-labelledby="casoModalTitle1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="casoModalTitle1">Gestión Detallada del Caso: EMP-0056</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h6>Información del Proceso</h6>
+                                <p><strong>Causa:</strong> Musculoesquelética (Lumbalgia Crónica)</p>
+                                <p><strong>Días de Baja:</strong> 215 días | **Puesto:** Almacenista | **Centro:** Almacén Central</p>
+                                <hr>
+                                <h6>Cronología y Plan de Acción</h6>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Fecha Último Contacto
+                                        <span class="badge badge-success badge-pill">15/11/2025 (Salud Laboral)</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Acción Requerida
+                                        <span class="badge badge-warning badge-pill">Programar reunión Tripartita (Empleado, Mando, SL)</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Posible Fecha de Reincorporación
+                                        <span class="badge badge-primary badge-pill">15/01/2026 (Estimada)</span>
+                                    </li>
+                                </ul>
+                                <h6 class="mt-3">Ajustes de Puesto / Readaptación</h6>
+                                <p>El puesto de Almacenista en Almacén Central fue identificado con Riesgo Alto Ergonómico. Se recomienda readaptación a puesto de supervisión ligera o tareas de picking automatizado durante los primeros 6 meses post-reincorporación.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary"><i class="fa fa-calendar-alt mr-1"></i> Notificar a Salud Laboral</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="casoModal2" tabindex="-1" role="dialog" aria-labelledby="casoModalTitle2" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="casoModalTitle2">Gestión Detallada del Caso: EMP-0112</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h6>Información del Proceso</h6>
+                                <p><strong>Causa:</strong> Salud Mental (Trastorno de Ansiedad)</p>
+                                <p><strong>Días de Baja:</strong> 98 días | **Puesto:** Operario Línea A | **Centro:** Línea de Envasado A</p>
+                                <hr>
+                                <h6>Cronología y Plan de Acción</h6>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Fecha Último Contacto
+                                        <span class="badge badge-success badge-pill">01/11/2025 (SAP)</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Acción Requerida
+                                        <span class="badge badge-danger badge-pill">Coordinar con Mando para asegurar una carga de trabajo reducida al reincorporarse.</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Posible Fecha de Reincorporación
+                                        <span class="badge badge-primary badge-pill">30/12/2025 (Estimada, a tiempo parcial)</span>
+                                    </li>
+                                </ul>
+                                <h6 class="mt-3">Ajustes de Puesto / Readaptación</h6>
+                                <p>Riesgo de Estrés Psicosocial Medio-Alto en Línea A. Se recomienda planificar un "aterrizaje suave" con jornadas parciales o tareas de menor presión durante el primer mes.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary"><i class="fa fa-envelope mr-1"></i> Enviar Recordatorio al Mando</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Diseñado e Implementado por ThirdWish Systems 2025</p>
+            </div>
+        </div>
+        </div>
+    <script src="./vendor/global/global.min.js"></script>
+    <script src="./js/quixnav-init.js"></script>
+    <script src="./js/custom.min.js"></script>
+    
+    </body>
+
+</html>
